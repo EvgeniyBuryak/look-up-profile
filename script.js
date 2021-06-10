@@ -38,15 +38,7 @@ function lookUpProfile(name, prop) {
         let isOwnProperty = obj.hasOwnProperty(prop);
 
         if (isFirstName) {
-            if (isOwnProperty) {
-
-                result    = obj[prop];
-
-            } else {
-
-                result    = "No such property";                
-
-            }
+            result = isOwnProperty ? obj[prop] : "No such property";
             break;
         } else {
             result        = "No such contact";
