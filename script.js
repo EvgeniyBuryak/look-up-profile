@@ -28,26 +28,34 @@ var contacts = [
 
 // Поиск профиля
 function lookUpProfile(name, prop) {
-    let result = "";
+
+    let result            = "";
+
     for (let key in contacts) {
-        let obj = contacts[key];
+
+        let obj           = contacts[key];
+        let isFirstName   = obj.firstName == name;
         let isOwnProperty = obj.hasOwnProperty(prop);
-        if (obj.firstName == name) {
+
+        if (isFirstName) {
             if (isOwnProperty) {
-                result = obj[prop];
-                break;
+
+                result    = obj[prop];
+
             } else {
-                result = "No such property";
-                break;
+
+                result    = "No such property";                
+
             }
+            break;
         } else {
-            result = "No such contact";
+            result        = "No such contact";
         }
     }
     return result;
 }
 
-let result = lookUpProfile("Akira", "address");
+let result                = lookUpProfile("Akira", "address");
 console.log(result);
-result = lookUpProfile("Kristian", "lastName");
+result                    = lookUpProfile("Kristian", "lastName");
 console.log(result);
